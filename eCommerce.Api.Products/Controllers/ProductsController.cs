@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper.Configuration.Conventions;
 
 namespace eCommerce.Api.Products.Controllers
 {
@@ -27,6 +28,12 @@ namespace eCommerce.Api.Products.Controllers
                 return Ok(result.Products);
             }
             return NotFound();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductAsync(int Id)
+        {
+            var 
         }
     }
 }
