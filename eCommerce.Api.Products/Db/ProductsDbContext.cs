@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eCommerce.Api.Products.Db
 {
-    public class ProductDbContext: DbContext
+    public class ProductsDbContext: DbContext
     {
         public DbSet<Product> Products { get; set; }
 
-        public ProductDbContext(DbContextOptions options): base(options)
+        public ProductsDbContext(DbContextOptions options): base(options)
         {
 
         }
