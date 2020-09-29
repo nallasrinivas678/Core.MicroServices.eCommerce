@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using eCommerce.Api.Products.Db;
 using eCommerce.Api.Products.Interfaces;
+using eCommerce.Api.Products.Providers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace eCommerce.Api.Products
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddScoped<IProductsProvider, IProductsProvider>();
+            services.AddScoped<IProductsProvider, ProductsProvider>();
 
             services.AddAutoMapper(typeof(Startup));
 

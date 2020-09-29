@@ -23,8 +23,7 @@ namespace eCommerce.Api.Products.Providers
             this.dbContext = dbContext;
             this.logger = logger;
             this.mapper = mapper;
-
-
+            SeedData();
         }
 
         private void SeedData()
@@ -38,7 +37,7 @@ namespace eCommerce.Api.Products.Providers
                 dbContext.SaveChanges();
             }
         }
-        public async Task<(bool IsSuccess, IEnumerable<Models.Product>, string ErrorMessage)> GetProductsAsync()
+        public async Task<(bool IsSuccess, IEnumerable<Models.Product> Products, string ErrorMessage)> GetProductsAsync()
         {
             try
             {
