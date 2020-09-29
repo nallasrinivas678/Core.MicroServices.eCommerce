@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace eCommerce.Api.Orders.Profiles
 {
-    public class OrderProfile
+    public class OrderProfile: AutoMapper.Profile
     {
+        public OrderProfile()
+        {
+            CreateMap<Db.Order, Models.Order>();
+            CreateMap<Db.OrderItem, Models.OrderItem>();
+        }
     }
 }
