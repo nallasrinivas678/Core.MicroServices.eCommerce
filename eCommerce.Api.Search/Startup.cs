@@ -30,8 +30,13 @@ namespace eCommerce.Api.Search
             {
                 config.BaseAddress = new Uri(Configuration["Services:Orders"]);
             });
+            services.AddHttpClient("ProductsService", config =>
+            {
+                config.BaseAddress = new Uri(Configuration["Services:Products"]);
+            });
             services.AddScoped<ISearchService, SearchService>();
             services.AddScoped<IOrdersService, OrdersService>();
+            services.AddScoped<IProductService, ProductsService>();
             services.AddControllers();
         }
 
