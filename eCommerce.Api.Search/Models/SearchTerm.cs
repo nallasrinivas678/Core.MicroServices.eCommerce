@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace eCommerce.Api.Search.Models
-    public class SearchTerm
 {
-    public int CustomerId { get; set; }
+    public class SearchTerm
+    {
+        public int CustomerId { get; set; }
+    }
 }
