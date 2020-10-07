@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Polly;
 
 namespace eCommerce.Api.Search
 {
@@ -33,10 +34,16 @@ namespace eCommerce.Api.Search
             services.AddHttpClient("ProductsService", config =>
             {
                 config.BaseAddress = new Uri(Configuration["Services:Products"]);
+            })
+            .AddTransientHttpErrorPolicy(p=>p.WaitAndRetryAsync(5,_=>TimeSpan.FromMilliseconds(500)));
+            services.AddHttpClient("CustomersService", config =>
+            {
+                config.BaseAddress = new Uri(Configuration["Services:Customers"]);
             });
             services.AddScoped<ISearchService, SearchService>();
             services.AddScoped<IOrdersService, OrdersService>();
             services.AddScoped<IProductService, ProductsService>();
+            services.AddScoped<ICustomersService, CustomersService>();
             services.AddControllers();
         }
 
