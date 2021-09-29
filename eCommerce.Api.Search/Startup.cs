@@ -55,6 +55,7 @@ namespace eCommerce.Api.Search
                 app.UseDeveloperExceptionPage();
             }
 
+            //routing
             app.UseRouting();
 
             app.UseAuthorization();
